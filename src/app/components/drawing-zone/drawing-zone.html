@@ -1,0 +1,331 @@
+<div #componentRoot 
+     class="component-root" 
+     (mousemove)="onMouseMove($event)"
+     (wheel)="onWheel($event)"
+     (mousedown)="onMouseDown($event)"
+     (mouseup)="onMouseUp()">
+    <div #pointerDiv
+         [ngClass]="root.pointerInScreen ? 'pointer-in' : 'pointer-out'" 
+         [style.left.px]="root.pointer.absolute_offset.x" 
+         [style.top.px]="root.pointer.absolute_offset.y">
+        <div [ngClass]="root.pointerInScreen ? 'pointer-in-div' : 'pointer-out-div'">
+            <div class="line">
+            <div class="line-description">Absolute</div>
+            <div class="line-values">
+                <div [ngClass]="root.pointerInScreen ? 'pointer-in-line-value-x' : 'pointer-out-line-value-x'">{{root.pointer.absolute_offset.x | number: '1.2-2'}} px</div>
+                <div [ngClass]="root.pointerInScreen ? 'pointer-in-line-value-y' : 'pointer-out-line-value-y'">{{root.pointer.absolute_offset.y | number: '1.2-2'}} px</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="root-topleft-div">
+        <div class="line">
+            <div class="line-description">Absolute</div>
+            <div class="line-values">
+                <div class="root-line-value-x">{{root.corners.topLeft.x | number: '1.2-2'}} px</div>
+                <div class="root-line-value-y">{{root.corners.topLeft.y | number: '1.2-2'}} px</div>
+            </div>
+        </div>
+    </div>
+    <div class="root-topright-div">
+        <div class="line">
+            <div class="line-description">Absolute</div>
+            <div class="line-values">
+                <div class="root-line-value-x">{{root.corners.topRight.x | number: '1.2-2'}} px</div>
+                <div class="root-line-value-y">{{root.corners.topRight.y | number: '1.2-2'}} px</div>
+            </div>
+        </div>
+    </div>
+    <div class="root-bottomright-div">
+        <div class="line">
+            <div class="line-description">Absolute</div>
+            <div class="line-values">
+                <div class="root-line-value-x">{{root.corners.bottomRight.x | number: '1.2-2'}} px</div>
+                <div class="root-line-value-y">{{root.corners.bottomRight.y | number: '1.2-2'}} px</div>
+            </div>
+        </div>
+    </div>
+    <div class="root-bottomleft-div">
+        <div class="line">
+            <div class="line-description">Absolute</div>
+            <div class="line-values">
+                <div class="root-line-value-x">{{root.corners.bottomLeft.x | number: '1.2-2'}} px</div>
+                <div class="root-line-value-y">{{root.corners.bottomLeft.y | number: '1.2-2'}} px</div>
+            </div>
+        </div>
+    </div>
+    <div #screenDiv
+         class="screen"
+         [style.width.px]="screen.width"
+         [style.height.px]="screen.height"
+         [style.top.px]="screen.top"
+         [style.left.px]="screen.left">
+
+         <div class="screen-center"
+              [style.top.px]="screen.height/2"
+              [style.left.px]="screen.width/2">
+            <div class="screen-center-div">
+                <div class="line">
+                    <div class="line-description">Absolute</div>
+                    <div class="line-values">
+                        <div class="screen-line-value-x">{{screen.center.absolute_offset.x | number: '1.2-2'}} px</div>
+                        <div class="screen-line-value-y">{{screen.center.absolute_offset.y | number: '1.2-2'}} px</div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="line-description">Relative</div>
+                    <div class="line-values">
+                        <div class="screen-line-value-x">{{screen.center.relative_offset.x | number: '1.2-2'}} px</div>
+                        <div class="screen-line-value-y">{{screen.center.relative_offset.y | number: '1.2-2'}} px</div>
+                    </div>
+                </div>
+            </div>
+         </div>
+        <div class="screen-topleft-div">
+            <div class="line">
+                <div class="line-description">Absolute</div>
+                <div class="line-values">
+                    <div class="screen-line-value-x">{{screen.corners.topLeft.absolute_offset.x | number: '1.2-2'}} px</div>
+                    <div class="screen-line-value-y">{{screen.corners.topLeft.absolute_offset.y | number: '1.2-2'}} px</div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="line-description">Relative</div>
+                <div class="line-values">
+                    <div class="screen-line-value-x">{{screen.corners.topLeft.relative_offset.x | number: '1.2-2'}} px</div>
+                    <div class="screen-line-value-y">{{screen.corners.topLeft.relative_offset.y | number: '1.2-2'}} px</div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-topright-div">
+            <div class="line">
+                <div class="line-description">Absolute</div>
+                <div class="line-values">
+                    <div class="screen-line-value-x">{{screen.corners.topRight.absolute_offset.x | number: '1.2-2'}} px</div>
+                    <div class="screen-line-value-y">{{screen.corners.topRight.absolute_offset.y | number: '1.2-2'}} px</div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="line-description">Relative</div>
+                <div class="line-values">
+                    <div class="screen-line-value-x">{{screen.corners.topRight.relative_offset.x | number: '1.2-2'}} px</div>
+                    <div class="screen-line-value-y">{{screen.corners.topRight.relative_offset.y | number: '1.2-2'}} px</div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-bottomright-div">
+            <div class="line">
+                <div class="line-description">Absolute</div>
+                <div class="line-values">
+                    <div class="screen-line-value-x">{{screen.corners.bottomRight.absolute_offset.x | number: '1.2-2'}} px</div>
+                    <div class="screen-line-value-y">{{screen.corners.bottomRight.absolute_offset.y | number: '1.2-2'}} px</div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="line-description">Relative</div>
+                <div class="line-values">
+                    <div class="screen-line-value-x">{{screen.corners.bottomRight.relative_offset.x | number: '1.2-2'}} px</div>
+                    <div class="screen-line-value-y">{{screen.corners.bottomRight.relative_offset.y | number: '1.2-2'}} px</div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-bottomleft-div">
+            <div class="line">
+                <div class="line-description">Absolute</div>
+                <div class="line-values">
+                    <div class="screen-line-value-x">{{screen.corners.bottomLeft.absolute_offset.x | number: '1.2-2'}} px</div>
+                    <div class="screen-line-value-y">{{screen.corners.bottomLeft.absolute_offset.y | number: '1.2-2'}} px</div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="line-description">Relative</div>
+                <div class="line-values">
+                    <div class="screen-line-value-x">{{screen.corners.bottomLeft.relative_offset.x | number: '1.2-2'}} px</div>
+                    <div class="screen-line-value-y">{{screen.corners.bottomLeft.relative_offset.y | number: '1.2-2'}} px</div>
+                </div>
+            </div>
+        </div>
+        <div class="zone"
+             [style.width.px]="zone.width"
+             [style.height.px]="zone.height"
+             [style.left.px]="zone.left"
+             [style.top.px]="zone.top">
+
+            <div class="zone-center"
+                  [style.top.px]="zone.height/2"
+                  [style.left.px]="zone.width/2">
+                <div class="zone-center-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.center.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.center.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.center.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.center.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <div class="zone-topleft-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.corners.topLeft.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.corners.topLeft.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.corners.topLeft.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.corners.topLeft.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+            </div>
+            <div class="zone-topright-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.corners.topRight.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.corners.topRight.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.corners.topRight.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.corners.topRight.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+            </div>
+            <div class="zone-bottomright-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.corners.bottomRight.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.corners.bottomRight.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.corners.bottomRight.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.corners.bottomRight.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+            </div>
+            <div class="zone-bottomleft-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.corners.bottomLeft.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.corners.bottomLeft.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="zone-line-value-x">{{zone.corners.bottomLeft.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="zone-line-value-y">{{zone.corners.bottomLeft.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="overscreen"
+             [style.width.px]="overscreen.width"
+             [style.height.px]="overscreen.height"
+             [style.left.px]="overscreen.left"
+             [style.top.px]="overscreen.top">
+
+            <!-- <div class="overscreen-center"
+                  [style.top.px]="overscreen.height/2"
+                  [style.left.px]="overscreen.width/2">
+                <div class="overscreen-center-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.center.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.center.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.center.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.center.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="overscreen-topleft-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.corners.topLeft.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.corners.topLeft.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.corners.topLeft.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.corners.topLeft.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+            </div>
+            <div class="overscreen-topright-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.corners.topRight.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.corners.topRight.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.corners.topRight.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.corners.topRight.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+            </div>
+            <div class="overscreen-bottomright-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.corners.bottomRight.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.corners.bottomRight.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.corners.bottomRight.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.corners.bottomRight.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+            </div>
+            <div class="overscreen-bottomleft-div">
+                    <div class="line">
+                        <div class="line-description">Absolute</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.corners.bottomLeft.absolute_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.corners.bottomLeft.absolute_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="line-description">Relative</div>
+                        <div class="line-values">
+                            <div class="overscreen-line-value-x">{{overscreen.corners.bottomLeft.relative_offset.x | number: '1.2-2'}} px</div>
+                            <div class="overscreen-line-value-y">{{overscreen.corners.bottomLeft.relative_offset.y | number: '1.2-2'}} px</div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
